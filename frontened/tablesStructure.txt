@@ -1,0 +1,23 @@
+
+fund table
++-----------------+-------------------------+------+-----+---------+----------------+
+| Field           | Type                    | Null | Key | Default | Extra          |
++-----------------+-------------------------+------+-----+---------+----------------+
+| fund_id         | int                     | NO   | PRI | NULL    | auto_increment |
+| fund_name       | varchar(100)            | NO   |     | NULL    |                |
+| fund_type       | enum('Monthly','Party') | NO   |     | NULL    |                |
+| required_amount | decimal(10,2)           | YES  |     | NULL    |                |
+| target_year     | year                    | NO   |     | NULL    |                |
++-----------------+-------------------------+------+-----+---------+----------------+
+//payments table
+--------------+---------------+------+-----+-------------------+-------------------+
+| Field        | Type          | Null | Key | Default           | Extra             |
++--------------+---------------+------+-----+-------------------+-------------------+
+| payment_id   | int           | NO   | PRI | NULL              | auto_increment    |
+| dept_prefix  | varchar(5)    | YES  | MUL | NULL              |                   |
+| batch_year   | int           | YES  |     | NULL              |                   |
+| student_id   | int           | YES  |     | NULL              |                   |
+| fund_id      | int           | YES  | MUL | NULL              |                   |
+| amount_paid  | decimal(10,2) | NO   |     | NULL              |                   |
+| payment_date | timestamp     | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+---------------+------+-----+-------------------+-------------------+
